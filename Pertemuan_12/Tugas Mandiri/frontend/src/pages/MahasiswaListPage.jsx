@@ -147,7 +147,7 @@ export default function MahasiswaListPage() {
   return (
     <div className="space-y-4">
       <PageTitle
-        title="Daftar Mahasiswa (Tugas Mandiri)"
+        title="Daftar Mahasiswa"
         description="Kelola data mahasiswa dengan fitur pencarian dan filter."
         actions={
           <>
