@@ -66,7 +66,11 @@ export default function MahasiswaListPage() {
         }
       } catch (err) {
         if (isMounted) {
-          setError(err.message);
+          if (err.response?.status === 403) {
+            setError("Akun Anda bukan admin");
+          } else {
+            setError(err.message);
+          }
         }
       } finally {
         if (isMounted) {
@@ -89,7 +93,11 @@ export default function MahasiswaListPage() {
       const data = await getMahasiswa();
       setMahasiswa(data);
     } catch (err) {
-      setError(err.message);
+      if (err.response?.status === 403) {
+        setError("Akun Anda bukan admin");
+      } else {
+        setError(err.message);
+      }
     } finally {
       setRefreshing(false);
     }

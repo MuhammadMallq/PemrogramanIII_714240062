@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { clearAuthSession, getUser } from "../../services/auth";
+import { clearAuthSession, getUser, getToken } from "../../services/auth";
 import Button from "../atoms/Button";
 
 export default function Header({ pageTitle, onToggleSidebar }) {
@@ -24,6 +24,21 @@ export default function Header({ pageTitle, onToggleSidebar }) {
     }
   };
 
+  const handleShowToken = () => {
+    const token = getToken();
+    Swal.fire({
+      title: "Token JWT",
+      text: token || "Token tidak ditemukan",
+      icon: "info",
+      confirmButtonText: "Tutup",
+      confirmButtonColor: "#3b82f6",
+      width: 600,
+      customClass: {
+        popup: "rounded-xl",
+      },
+    });
+  };
+
   return (
     <header className="border-b border-slate-200 bg-white/80 text-slate-800 backdrop-blur">
       <div className="flex w-full items-center justify-between px-4 py-4 md:px-6">
@@ -45,6 +60,14 @@ export default function Header({ pageTitle, onToggleSidebar }) {
           <span className="rounded-full bg-gradient-to-r from-blue-100 to-indigo-100 px-3 py-1 text-xs font-medium text-blue-700 md:text-sm">
             {pageTitle}
           </span>
+          <Button
+            type="button"
+            variant="secondary"
+            className="px-3 py-1 text-xs"
+            onClick={handleShowToken}
+          >
+            Lihat Token
+          </Button>
           <Button
             type="button"
             variant="danger"

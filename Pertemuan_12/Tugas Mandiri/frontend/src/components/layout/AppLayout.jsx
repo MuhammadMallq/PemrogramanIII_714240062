@@ -7,6 +7,8 @@ import Footer from "./Footer";
 const PAGE_TITLES = {
   "/dashboard": "Dashboard",
   "/mahasiswa": "Data Mahasiswa",
+  "/profil": "Profil",
+  "/password": "Password",
 };
 
 export default function AppLayout() {

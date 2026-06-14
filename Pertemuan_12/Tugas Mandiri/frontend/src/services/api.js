@@ -52,7 +52,7 @@ export async function getMahasiswa() {
 
     return mahasiswa;
   } catch (error) {
-    throw new Error(normalizeError(error, "Gagal mengambil data"));
+    throw error;
   }
 }
 
@@ -91,6 +91,19 @@ export async function deleteMahasiswa(npm) {
     throw new Error(normalizeError(error, "Gagal menghapus data"));
   }
 }
+
+export async function changePassword({ old_password, new_password }) {
+  try {
+    const response = await api.put("/change-password", {
+      old_password,
+      new_password,
+    });
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+}
+
 api.interceptors.request.use((config) => {
   const token = getToken();
 

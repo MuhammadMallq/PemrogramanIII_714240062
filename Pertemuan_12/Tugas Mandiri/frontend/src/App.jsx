@@ -5,6 +5,8 @@ import LoginPage from "./pages/LoginPage";
 import MahasiswaDetailPage from "./pages/MahasiswaDetailPage";
 import MahasiswaFormPage from "./pages/MahasiswaFormPage";
 import MahasiswaListPage from "./pages/MahasiswaListPage";
+import PasswordPage from "./pages/PasswordPage";
+import ProfilPage from "./pages/ProfilPage";
 import RegisterPage from "./pages/RegisterPage";
 import PrivateRoute from "./routes/PrivateRoute";
 
@@ -25,6 +27,8 @@ export default function App() {
             path="/mahasiswa/:npm/edit"
             element={<MahasiswaFormPage mode="edit" />}
           />
+          <Route path="/profil" element={<ProfilPage />} />
+          <Route path="/password" element={<PasswordPage />} />
         </Route>
       </Route>
 
